@@ -17,7 +17,7 @@ class GoodsController extends Controller
     public function index(){
     	$goods = Goods::all();
 
-    	$goods = Goods::with('')
+//    	$goods = Goods::with('')
 
     	return $this->collection($goods, new GoodsTransformer, ['key' => '200,success']);
 
