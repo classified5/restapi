@@ -37,7 +37,7 @@ class GoodsRepository
     public function update($input, $data)
     {
 //        $data = $this->find($id);
-        $data->fill($input);
+        $data = $data->update($input);
 
         if ($data){
             return $data;

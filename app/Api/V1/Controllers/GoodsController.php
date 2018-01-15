@@ -3,10 +3,10 @@
 namespace App\Api\V1\Controllers;
 
 use App\Api\V1\Requests\UpdateGoodsRequest;
+use App\Api\V1\Transformers\BaseTransformer;
 use Illuminate\Http\Request;
 use App\Api\V1\Requests\StoreGoodsRequest;
 use App\Http\Controllers\Controller;
-use App\Models\Goods;
 use Dingo\Api\Routing\Helpers;
 use App\Api\V1\Transformers\GoodsTransformer;
 use App\Api\V1\Repositories\GoodsRepository;
@@ -55,7 +55,7 @@ class GoodsController extends Controller
         }
 
         if($data){
-            return $this->response->noContent();
+            return $this->response->item($goods, new BaseTransformer(), ['key' => '200,success']);
         }else{
             return $this->response->errorInternal("Failed to update!");
         }

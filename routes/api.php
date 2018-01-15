@@ -30,11 +30,8 @@ $api->version('v1', ['prefix' => 'api/v1'], function ($api) {
 	$api->group( ['middleware' => 'api.auth'] , function ($api) {
     	$api->get('/goods', 'App\Api\V1\Controllers\GoodsController@index');
     	$api->post('/goods', 'App\Api\V1\Controllers\GoodsController@create');
-    	$api->put('/goods/{$id}', 'App\Api\V1\Controllers\GoodsController@update');
-//        $api->put('/goods', function ()
-//        {
-//            return "halo";
-//        });
+    	$api->put('/goods/{id}', 'App\Api\V1\Controllers\GoodsController@update');
+
 	});
 });
 

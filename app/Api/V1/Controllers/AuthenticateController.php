@@ -11,6 +11,8 @@ use App\Http\Requests;
 
 class AuthenticateController extends Controller
 {
+
+    use Helpers;
     //
      /**
      *  API Login, on success return JWT Auth token
