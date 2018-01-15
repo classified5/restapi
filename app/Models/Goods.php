@@ -20,9 +20,6 @@ class Goods extends Model
     	'quantity',
     ];
 
-    public function shelf(){
-        return $this->hasMany('App\Models\Shelf');
-    }
 
 
 }

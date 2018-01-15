@@ -28,9 +28,13 @@ $api->version('v1', ['prefix' => 'api/v1'], function ($api) {
 	$api->get('token', 'App\Api\V1\Controllers\AuthenticateController@getToken');
 
 	$api->group( ['middleware' => 'api.auth'] , function ($api) {
-    	$api->get('/', 'App\Api\V1\Controllers\GoodsController@index');
-    	$api->post('/goods', 'App\Api\V1\Controllers\GoodsController@store');
-    	
+    	$api->get('/goods', 'App\Api\V1\Controllers\GoodsController@index');
+    	$api->post('/goods', 'App\Api\V1\Controllers\GoodsController@create');
+    	$api->put('/goods/{$id}', 'App\Api\V1\Controllers\GoodsController@update');
+//        $api->put('/goods', function ()
+//        {
+//            return "halo";
+//        });
 	});
 });
 
