@@ -36,8 +36,9 @@ class GoodsController extends Controller
 
     public function create(StoreGoodsRequest $request)
     {
+        $data = new \stdClass();
     	if($this->goodsRepo->store($request->all())) {
-    		return $this->response->created();
+    		return $this->response->item($data, new BaseTransformer(), ['key' => '201,created']);
     	}
 
     	return $this->response->errorBadRequest();
@@ -55,7 +56,7 @@ class GoodsController extends Controller
         }
 
         if($data){
-            return $this->response->item($goods, new BaseTransformer(), ['key' => '200,success']);
+            return $this->response->item($goods, new BaseTransformer(), ['key' => '200,updated']);
         }else{
             return $this->response->errorInternal("Failed to update!");
         }
